@@ -10,9 +10,9 @@ defmodule JogoDaVelha do
     desenhar_tabuleiro(estado.tabuleiro)
 
     cond do
-      vencedor?(estado.tabuleiro, :X) -> IO.puts("🎉 Jogador X venceu!")
-      vencedor?(estado.tabuleiro, :O) -> IO.puts("🎉 Jogador O venceu!")
-      empate?(estado.tabuleiro)       -> IO.puts("🤝 Empate! Deu velha.")
+      vencedor?(estado.tabuleiro, :X) -> IO.puts("Jogador X venceu!")
+      vencedor?(estado.tabuleiro, :O) -> IO.puts("Jogador O venceu!")
+      empate?(estado.tabuleiro)       -> IO.puts("Empate! Deu velha.")
       true ->
         posicao = obter_jogada(estado.turno, estado.tabuleiro)
         novo_tabuleiro = List.replace_at(estado.tabuleiro, posicao, estado.turno)
@@ -46,11 +46,11 @@ defmodule JogoDaVelha do
         if Enum.at(tabuleiro, index) == nil do
           index
         else
-          IO.puts("❌ Posição já ocupada! Tente novamente.")
+          IO.puts("Posição já ocupada! Tente novamente.")
           obter_jogada(jogador, tabuleiro)
         end
       _ ->
-        IO.puts("❌ Entrada inválida! Digite um número de 1 a 9.")
+        IO.puts("Entrada inválida! Digite um número de 1 a 9.")
         obter_jogada(jogador, tabuleiro)
     end
   end
